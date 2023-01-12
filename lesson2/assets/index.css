@@ -1,27 +1,20 @@
 #infor{
     display: flex;
     width: 100%;
-    flex-direction: row;
     justify-content: center;
     gap: 10px;
     height: 30px;
 }
 #name{
-    border-radius: 5px;
-    border-width: 1px;
     flex: 33%;
     margin-left: 20px;
 }
 #phone{
-    border-radius: 5px;
-    border-width: 1px;
     flex: 33%;
 }
 #add{
     background-color: rgb(0, 140, 255);
     color: white;
-    border-width: 1px;
-    border-radius: 5px;
     flex: 33%;
     margin-right: 20px;
 }
@@ -32,10 +25,17 @@
     width: 100%;
     gap:10px;
 }
-
-
-
-
+#search{
+    flex: 50%;
+    margin-left: 20px;
+}
+#find{
+    flex:7%;
+}
+#clear{
+    flex:28%;
+    margin-right: 20px;
+}
 button{
     background-color: rgb(0, 140, 255);
     color: white;
@@ -45,4 +45,8 @@ button{
 input{
     border-radius: 5px;
     border-width: 1px;
+}
+h1{
+    display: flex;
+    justify-content: center;
 }
