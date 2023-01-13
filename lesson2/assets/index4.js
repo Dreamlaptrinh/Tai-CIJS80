@@ -30,7 +30,6 @@ function rederInformation(information = []){
         <p>${i.number}</p>
         </div>
          `
-        console.log(infor)
     });
     infor += '</ul>'
     document.querySelector('#results').innerHTML = infor
@@ -39,15 +38,42 @@ function rederInformation(information = []){
     return localStorage.getItem('information') ? JSON.parse(localStorage.getItem('information')):[]
  }
 
-//  //Tìm số điện thoại trùng
-//  let btnSearch = document.querySelector('search')
-//  btnSearch.addEventListener('click',function(){
-//     let valueSearchInput = document.getElementById("find").value
-//     let inforSearch  = information.filter(value=>{
-//     return value.name.toupercase().includes(valueSearchInput.toupercase())
-//     })
-//     rederInformation(inforSearch)
-//  })
+ //Tìm tên trùng
+ let btnSearch = document.querySelector('#find')
+ btnSearch.addEventListener('click',function(){
+    let valueSearchInput = document.getElementById("search").value;
+    let list=information
+    let kq =[]
+    if (valueSearchInput){
+        for(let i=0; i<list.length; i++){
+            var str = list[i].name;
+            document.getElementById('resultsSearch').style.display = "block";
+            document.getElementById('results').style.display = "none";
+            if(str.includes(valueSearchInput)){
+                var inforSearch ={
+                    name: list[i].name
+                }
+                kq.push(inforSearch)
+            let inforSea = '<ul>';
+            kq.forEach((i)=>{
+                inforSea +=
+                 `<div id="resultSearch">
+                <p>${i.name}</p>
+                <p>${i.number}</p>
+                </div>
+                 `
+                 console.log(inforSea)
+            });
+            infor += '</ul>'
+            document.querySelector('#resultsSearch').innerHTML = inforSea
+            }
+        }
+    }
+    else{
+        document.getElementById('resultsSearch').style.display = "none";
+        document.getElementById('results').style.display = "block";
+    }
+ })
 
 
 
