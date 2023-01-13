@@ -41,19 +41,17 @@ function rederInformation(information = []){
  //Tìm tên trùng
  let btnSearch = document.querySelector('#find')
  btnSearch.addEventListener('click',function(){
-    let valueSearchInput = document.getElementById("search").value;
-    let list=information
+    let valueSearchInput = document.getElementById("search").value;   //nhap giá trị search
+    let list = information
     let kq =[]
     if (valueSearchInput){
-        for(let i=0; i<list.length; i++){
-            var str = list[i].name;
+        for(let i = 0; i < list.length; i++){
             document.getElementById('resultsSearch').style.display = "block";
             document.getElementById('results').style.display = "none";
-            if(str.includes(valueSearchInput)){
-                var inforSearch ={
-                    name: list[i].name
-                }
-                kq.push(inforSearch)
+            let inforSearch = list[i].name.includes(valueSearchInput) ? list[i] : null
+            if(inforSearch){
+                kq.push(inforSearch)} //push kết quả search vào kq
+            //render lại 
             let inforSea = '<ul>';
             kq.forEach((i)=>{
                 inforSea +=
@@ -62,18 +60,27 @@ function rederInformation(information = []){
                 <p>${i.number}</p>
                 </div>
                  `
-                 console.log(inforSea)
             });
             infor += '</ul>'
             document.querySelector('#resultsSearch').innerHTML = inforSea
             }
         }
-    }
     else{
         document.getElementById('resultsSearch').style.display = "none";
         document.getElementById('results').style.display = "block";
     }
  })
+ //Xóa trùng
+// let btnClear = document.querySelectorAll('#clear')
+// btnClear.addEventListener('click',function(){
+//     let information = getInformationFromLocal()
+//     let list = information
+//     if(information){
+//         for (let i = 0; i < list.length; i++){
+            
+//         }
+//     }
+// })
 
 
 
