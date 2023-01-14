@@ -51,6 +51,7 @@ function rederInformation(information = []){
             let inforSearch = list[i].name.includes(valueSearchInput) ? list[i] : null
             if(inforSearch){
                 kq.push(inforSearch)} //push kết quả search vào kq
+                console.log(kq)
             //render lại 
             let inforSea = '<ul>';
             kq.forEach((i)=>{
@@ -71,16 +72,18 @@ function rederInformation(information = []){
     }
  })
  //Xóa trùng
-// let btnClear = document.querySelectorAll('#clear')
-// btnClear.addEventListener('click',function(){
-//     let information = getInformationFromLocal()
-//     let list = information
-//     if(information){
-//         for (let i = 0; i < list.length; i++){
-            
-//         }
-//     }
-// })
+let btnClear = document.querySelector('#clear')
+btnClear.addEventListener('click',function(){
+    let information = getInformationFromLocal()
+    console.log('information',information)
+    let fil = information.filter(function(fil, index){
+        return fil.number === '0332221197'
+    });
+    console.log(fil);
+})
+        
+
+
 
 
 
